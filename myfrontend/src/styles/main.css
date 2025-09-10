@@ -1,0 +1,364 @@
+/* Main CSS - Bootstrap-first approach with custom enhancements */
+
+/* CSS Variables for consistent theming */
+:root {
+  --infobeans-red: #b30000;
+  --infobeans-red-hover: #cc0000;
+  --infobeans-red-light: rgba(179, 0, 0, 0.1);
+}
+
+/* Hero Section Styles */
+.hero-section {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  position: relative;
+}
+
+.hero-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a" cx="50%" cy="50%"><stop offset="0%" stop-color="%23ffffff" stop-opacity="0.1"/><stop offset="100%" stop-color="%23ffffff" stop-opacity="0"/></radialGradient></defs><circle cx="200" cy="200" r="100" fill="url(%23a)"/><circle cx="800" cy="300" r="150" fill="url(%23a)"/><circle cx="400" cy="700" r="120" fill="url(%23a)"/></svg>') no-repeat center center;
+  background-size: cover;
+  opacity: 0.3;
+}
+
+.floating-card {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+.feature-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.stat-item {
+  padding: 1rem;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease;
+}
+
+.stat-item:hover {
+  transform: scale(1.05);
+}
+
+/* Print media query fix - ensure navbar is visible */
+@media print {
+  .navbar {
+    display: block !important;
+  }
+}
+
+/* Hover effects for cards */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Minimum viewport height utility */
+.min-vh-75 {
+  min-height: 75vh;
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom gradient backgrounds */
+.bg-gradient-primary {
+  background: linear-gradient(135deg, #b30000 0%, #8b0000 100%);
+}
+
+/* Animation for statistics counters */
+@keyframes countUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-count {
+  animation: countUp 0.8s ease-out;
+}
+
+/* Profile image hover edit overlay */
+.profile-pic-wrapper .profile-edit-overlay {
+  opacity: 0;
+  transition: opacity 120ms ease;
+}
+.profile-pic-wrapper:hover .profile-edit-overlay {
+  opacity: 1;
+}
+
+/* Professional Navbar Styling */
+.navbar-professional {
+  background: linear-gradient(135deg, var(--infobeans-red) 0%, #8b0000 100%);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-link-professional {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-weight: 500;
+  padding: 0.75rem 1rem !important;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-link-professional:hover {
+  color: #ffffff !important;
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-1px);
+}
+
+.nav-link-professional:not(.dropdown-toggle)::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: #ffffff;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-link-professional:not(.dropdown-toggle):hover::before {
+  width: 80%;
+}
+
+/* Dropdown Animations */
+.dropdown-animated {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: none;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.dropdown-animated.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-item-professional {
+  padding: 0.75rem 1.25rem;
+  font-weight: 500;
+  color: #333;
+  transition: all 0.2s ease;
+  border-left: 3px solid transparent;
+}
+
+.dropdown-item-professional:hover {
+  background-color: #f8f9fa;
+  border-left-color: var(--infobeans-red);
+  color: var(--infobeans-red);
+  transform: translateX(5px);
+}
+
+.dropdown-header {
+  color: var(--infobeans-red);
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 0.5rem 1.25rem 0.25rem;
+}
+
+/* Custom Bootstrap theme overrides */
+.btn-primary {
+  background-color: var(--infobeans-red);
+  border-color: var(--infobeans-red);
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+  background-color: #cc0000;
+  border-color: #cc0000;
+}
+
+.btn-outline-primary {
+  color: var(--infobeans-red);
+  border-color: var(--infobeans-red);
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary:focus,
+.btn-outline-primary:active {
+  background-color: var(--infobeans-red);
+  border-color: var(--infobeans-red);
+  color: white;
+}
+
+.text-primary {
+  color: var(--infobeans-red) !important;
+}
+
+.bg-primary {
+  background-color: var(--infobeans-red) !important;
+}
+
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+/* Smooth page transitions */
+main {
+  animation: fadeIn 300ms ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Fancy underline on nav links */
+.navbar .nav-link {
+  position: relative;
+}
+.navbar .nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: #fff;
+  transition: width 0.2s ease;
+}
+.navbar .nav-link:hover::after {
+  width: 100%;
+}
+
+.card {
+  border: none;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  transition: box-shadow 0.15s ease-in-out, transform 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  transform: translateY(-4px);
+}
+
+/* Enhanced button hover effects */
+.btn {
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+}
+
+.shadow-sm {
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+}
+
+.shadow {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Custom utilities */
+.min-vh-100 {
+  min-height: 100vh;
+}
+
+
+/* Loading spinner customization */
+.spinner-border-sm {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* Alert positioning for notifications */
+.position-fixed {
+  position: fixed !important;
+}
+
+/* Book card specific styles */
+.card-img-top {
+  transition: transform 0.3s ease-in-out;
+}
+
+.card:hover .card-img-top {
+  transform: scale(1.05);
+}
+
+/* Form styling */
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--infobeans-red);
+  box-shadow: 0 0 0 0.2rem rgba(230, 0, 0, 0.25);
+}
+
+/* Table styling */
+.table-striped > tbody > tr:nth-of-type(odd) > td {
+  background-color: rgba(230, 0, 0, 0.05);
+}
+
+/* Badge styling */
+.badge {
+  font-size: 0.75em;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .navbar-brand {
+    font-size: 1.25rem;
+  }
+
+  .display-4 {
+    font-size: 2rem;
+  }
+
+  .btn-lg {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+  }
+}
+
+/* Accessibility improvements */
+.btn:focus,
+.form-control:focus,
+.form-select:focus {
+  outline: 2px solid var(--infobeans-red);
+  outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+  .btn,
+  .alert {
+    display: none !important;
+  }
+}
