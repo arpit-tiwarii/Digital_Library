@@ -94,7 +94,7 @@ npm run dev
 ```
 
 ### **4. Access Application**
-- **Frontend**: http://localhost:5173
+- **Frontend**: https://digital-library-frontend-l280.onrender.com
 - **Backend API**: http://localhost:5000
 
 ## 📝 Environment Configuration
@@ -109,7 +109,7 @@ GOOGLE_CLIENT_SECRET=your-google-client-secret
 GOOGLE_CALLBACK_URL=http://localhost:5000/auth/google/callback
 EMAIL_USER=your-email@gmail.com
 EMAIL_PASS=your-app-password
-FRONTEND_URL=http://localhost:5173
+FRONTEND_URL=https://digital-library-frontend-l280.onrender.com
 ```
 
 ### **Frontend (.env)**

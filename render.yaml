@@ -22,13 +22,13 @@ services:
       - key: GOOGLE_CLIENT_SECRET
         sync: false
       - key: GOOGLE_CALLBACK_URL
-        value: https://infobeans-library-backend.onrender.com/auth/google/callback
+        value: https://digital-library-backend-clf5.onrender.com/auth/google/callback
       - key: EMAIL_USER
         sync: false
       - key: EMAIL_PASS
         sync: false
       - key: FRONTEND_URL
-        value: https://infobeans-library-frontend.onrender.com
+        value: https://digital-library-frontend-l280.onrender.com
 
   # Frontend Service
   - type: static
@@ -37,6 +37,6 @@ services:
     staticPublishPath: ./myfrontend/dist
     envVars:
       - key: VITE_API_BASE
-        value: https://infobeans-library-backend.onrender.com
+        value: https://digital-library-backend-clf5.onrender.com
       - key: VITE_GOOGLE_CLIENT_ID
         sync: false

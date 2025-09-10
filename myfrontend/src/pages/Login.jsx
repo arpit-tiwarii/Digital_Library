@@ -75,7 +75,7 @@ const Login = () => {
 
   const handleGoogleLogin = () => {
     // Redirect to our server's Google OAuth endpoint
-    window.location.href = `${import.meta.env.VITE_API_URL || 'http://localhost:8000'}/auth/google`;
+    window.location.href = `${import.meta.env.VITE_API_BASE || 'https://digital-library-backend-clf5.onrender.com'}/auth/google`;
   }
 
   return (

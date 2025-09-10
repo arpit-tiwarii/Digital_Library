@@ -23,7 +23,7 @@ passport.deserializeUser(async (id, done) => {
 passport.use(new GoogleStrategy({
   clientID: process.env.GOOGLE_CLIENT_ID,
   clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-  callbackURL: process.env.GOOGLE_CALLBACK_URL || "http://localhost:8000/auth/google/callback",
+  callbackURL: process.env.GOOGLE_CALLBACK_URL || "https://digital-library-backend-clf5.onrender.com/auth/google/callback",
   scope: ['profile', 'email']
 }, async (accessToken, refreshToken, profile, done) => {
   try {

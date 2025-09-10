@@ -87,7 +87,7 @@ const Dashboard = () => {
     );
   }
 
-  const apiBase = import.meta.env.VITE_API_BASE || 'http://localhost:8000';
+  const apiBase = import.meta.env.VITE_API_BASE || 'https://digital-library-backend-clf5.onrender.com';
   const resolveProfilePicUrl = (profilePicValue) => {
     if (!profilePicValue) return null;
     const valueAsString = String(profilePicValue);

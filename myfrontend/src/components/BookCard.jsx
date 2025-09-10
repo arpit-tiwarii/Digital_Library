@@ -224,12 +224,12 @@ const BookCard = ({ book, onIssue, showIssueButton, showEditButton }) => {
           </div>
         )}
         <img
-          src={`${import.meta.env.VITE_API_BASE || 'http://localhost:8000'}/images/upload/${book.coverImage}`}
+          src={`${import.meta.env.VITE_API_BASE || 'https://digital-library-backend-clf5.onrender.com'}/images/upload/${book.coverImage}`}
           className="card-img-top"
           alt={`Cover of ${book.bookTitle || book.title}`}
           style={{ height: "200px", objectFit: "cover" }}
           onError={(e) => {
-            e.target.src = `${import.meta.env.VITE_API_BASE || 'http://localhost:8000'}/images/upload/defaultBook.jpg`;
+            e.target.src = `${import.meta.env.VITE_API_BASE || 'https://digital-library-backend-clf5.onrender.com'}/images/upload/defaultBook.jpg`;
           }}
         />
         <div className="card-body d-flex flex-column">
