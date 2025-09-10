@@ -35,6 +35,10 @@ services:
     name: infobeans-library-frontend
     buildCommand: cd myfrontend && npm install && npm run build
     staticPublishPath: ./myfrontend/dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
     envVars:
       - key: VITE_API_BASE
         value: https://digital-library-backend-clf5.onrender.com
